@@ -1,0 +1,1431 @@
+﻿/* ==========================================================================
+   SHFAA / شفاء — UI/UX Design Exploration Stylesheet
+   Three Distinct Visual Directions for the Daily Patient Queue
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Top Exploration Switcher Bar & Spec Sheet Drawer
+   -------------------------------------------------------------------------- */
+.exploration-bar {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background-color: #0f172a;
+  color: #f8fafc;
+  border-bottom: 1px solid #334155;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.exploration-bar-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.exploration-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.exploration-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: #334155;
+  color: #94a3b8;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.exploration-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.exploration-subtitle {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.exploration-switchers {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #1e293b;
+  padding: 3px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+}
+
+.dir-switch-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 150ms ease;
+  white-space: nowrap;
+}
+
+.dir-switch-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dir-switch-btn--active {
+  background: #0f766e;
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.dir-switch-btn--active.btn-minimal {
+  background: #334155;
+}
+
+.dir-switch-btn--active.btn-saas {
+  background: #0284c7;
+}
+
+.dir-switch-btn--active.btn-premium {
+  background: #0f766e;
+}
+
+.dir-num {
+  font-size: 10px;
+  font-weight: 700;
+  opacity: 0.8;
+  font-family: ui-monospace, monospace;
+}
+
+.exploration-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-spec-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: 1px solid #475569;
+  background: transparent;
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: all 150ms;
+}
+
+.btn-spec-toggle:hover {
+  background: #334155;
+  color: #ffffff;
+}
+
+/* Rationale / Spec Sheet Drawer */
+.exploration-spec-sheet {
+  background: #1e293b;
+  border-top: 1px solid #334155;
+  padding: 16px;
+  animation: expSlideDown 200ms ease;
+}
+
+@keyframes expSlideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.spec-sheet-grid {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.spec-col {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.spec-col--active {
+  border-color: #0d9488;
+  box-shadow: 0 0 0 1px #0d9488;
+}
+
+.spec-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.spec-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.spec-tag {
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #334155;
+  color: #cbd5e1;
+}
+
+.spec-desc {
+  font-size: 11px;
+  color: #94a3b8;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.spec-props {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 11px;
+}
+
+.spec-props li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #1e293b;
+  padding-bottom: 4px;
+  color: #cbd5e1;
+}
+
+.spec-prop-label {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.spec-prop-val {
+  font-weight: 600;
+  text-align: right;
+}
+
+/* ==========================================================================
+   DIRECTION 01 — MINIMAL CLINICAL ("Focus & Calm")
+   ========================================================================== */
+.dir-minimal-container {
+  background-color: #ffffff;
+  color: #1e293b;
+  min-height: calc(100vh - 54px);
+  padding: 40px 32px 80px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.dir-minimal-canvas {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.min-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 36px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.min-brand-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+.min-brand-sep {
+  color: #cbd5e1;
+}
+
+.min-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  margin: 0 0 4px;
+}
+
+.min-subtitle {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0;
+}
+
+.min-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.min-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #0f172a;
+  color: #ffffff;
+  padding: 9px 18px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: opacity 150ms;
+}
+
+.min-btn-primary:hover {
+  opacity: 0.9;
+}
+
+.min-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  color: #475569;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.min-btn-secondary:hover {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+/* Calm Metrics Strip (Open, Borderless) */
+.min-metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+  padding: 4px 0;
+}
+
+.min-metric-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.min-metric-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.min-metric-val-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.min-metric-val {
+  font-size: 32px;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.min-metric-unit {
+  font-size: 13px;
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.min-metric-sub {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* Filter & Search Bar */
+.min-controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.min-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.min-tab {
+  font-size: 13px;
+  font-weight: 500;
+  color: #64748b;
+  background: transparent;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 120ms;
+}
+
+.min-tab:hover {
+  color: #0f172a;
+  background-color: #f8fafc;
+}
+
+.min-tab--active {
+  color: #0f172a;
+  font-weight: 600;
+  background-color: #f1f5f9;
+}
+
+.min-search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 4px 0;
+  min-width: 260px;
+}
+
+.min-search-icon {
+  color: #94a3b8;
+}
+
+.min-search-input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 13px;
+  color: #0f172a;
+  width: 100%;
+}
+
+.min-search-input::placeholder {
+  color: #94a3b8;
+}
+
+/* Minimal Table (Airy, Hairline Dividers) */
+.min-table-wrap {
+  border-top: 1px solid #e2e8f0;
+}
+
+.min-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.min-table th {
+  padding: 14px 16px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.min-table td {
+  padding: 18px 16px;
+  font-size: 13px;
+  border-bottom: 1px solid #f8fafc;
+  color: #334155;
+  vertical-align: middle;
+}
+
+.min-table tr:hover td {
+  background-color: #fafbfc;
+}
+
+.min-qnum {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-weight: 600;
+  color: #0f172a;
+  font-size: 13px;
+}
+
+.min-patient-name {
+  font-weight: 600;
+  color: #0f172a;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.min-patient-ar {
+  font-size: 12px;
+  font-weight: 400;
+  color: #64748b;
+}
+
+.min-patient-ref {
+  font-size: 11px;
+  color: #94a3b8;
+  font-family: ui-monospace, monospace;
+}
+
+.min-time-primary {
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  color: #0f172a;
+}
+
+.min-time-wait {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.min-status-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.min-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.min-status-tag.status-waiting { color: #b45309; }
+.min-status-tag.status-waiting .min-status-dot { background-color: #f59e0b; }
+
+.min-status-tag.status-doctor { color: #0284c7; }
+.min-status-tag.status-doctor .min-status-dot { background-color: #0ea5e9; }
+
+.min-status-tag.status-completed { color: #047857; }
+.min-status-tag.status-completed .min-status-dot { background-color: #10b981; }
+
+.min-status-tag.status-cancelled { color: #64748b; }
+.min-status-tag.status-cancelled .min-status-dot { background-color: #94a3b8; }
+
+.min-doctor-name {
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.min-room {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.min-action-link {
+  font-size: 12px;
+  font-weight: 500;
+  color: #475569;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.min-action-link:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+/* ==========================================================================
+   DIRECTION 02 — MODERN SAAS WORKSTATION ("Structured High-Efficiency")
+   ========================================================================== */
+.dir-saas-container {
+  background-color: #f1f5f9;
+  color: #0f172a;
+  min-height: calc(100vh - 54px);
+  padding: 20px 24px 60px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.dir-saas-canvas {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+/* Header */
+.saas-header-card {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.saas-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.saas-icon-badge {
+  width: 42px;
+  height: 42px;
+  border-radius: 6px;
+  background-color: #e0f2fe;
+  color: #0284c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #bae6fd;
+}
+
+.saas-title-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.saas-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.saas-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.saas-badge-live {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background-color: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.saas-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #10b981;
+}
+
+.saas-subtitle {
+  font-size: 13px;
+  color: #475569;
+  margin-top: 2px;
+}
+
+.saas-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.saas-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #0284c7;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid #0369a1;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(2, 132, 199, 0.2);
+  transition: background 150ms;
+}
+
+.saas-btn-primary:hover {
+  background-color: #0369a1;
+}
+
+.saas-btn-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #ffffff;
+  color: #334155;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid #cbd5e1;
+  cursor: pointer;
+}
+
+.saas-btn-action:hover {
+  background-color: #f8fafc;
+  border-color: #94a3b8;
+}
+
+/* 4 Discrete Metric Cards with Top Accent */
+.saas-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.saas-card {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 14px 16px;
+  position: relative;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+}
+
+.saas-card-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 6px 6px 0 0;
+}
+
+.accent-amber { background-color: #f59e0b; }
+.accent-blue { background-color: #0284c7; }
+.accent-emerald { background-color: #10b981; }
+.accent-slate { background-color: #64748b; }
+
+.saas-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.saas-card-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+}
+
+.saas-card-val {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0f172a;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+
+.saas-card-meta {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Workspace Deck: Toolbar + High Density Table */
+.saas-workspace-card {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+  overflow: hidden;
+}
+
+.saas-toolbar {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e2e8f0;
+  background-color: #fafbfc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* Segmented Tabs */
+.saas-segmented-tabs {
+  display: flex;
+  align-items: center;
+  background-color: #e2e8f0;
+  padding: 2px;
+  border-radius: 6px;
+  gap: 2px;
+}
+
+.saas-seg-tab {
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+  background: transparent;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 120ms;
+}
+
+.saas-seg-tab:hover {
+  color: #0f172a;
+}
+
+.saas-seg-tab--active {
+  background-color: #ffffff;
+  color: #0f172a;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.saas-tab-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 10px;
+  background-color: #cbd5e1;
+  color: #334155;
+}
+
+.saas-seg-tab--active .saas-tab-badge {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+.saas-search-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.saas-search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 5px 10px;
+  width: 280px;
+  min-height: 32px;
+}
+
+.saas-search-box:focus-within {
+  border-color: #0284c7;
+  box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.15);
+}
+
+.saas-search-input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 12px;
+  color: #0f172a;
+  width: 100%;
+}
+
+.saas-kbd-hint {
+  font-size: 10px;
+  font-weight: 700;
+  background: #f1f5f9;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+  border-radius: 3px;
+  padding: 1px 4px;
+}
+
+/* High Density Table */
+.saas-table-container {
+  overflow-x: auto;
+}
+
+.saas-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.saas-table th {
+  background-color: #f8fafc;
+  padding: 10px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid #cbd5e1;
+  white-space: nowrap;
+}
+
+.saas-table td {
+  padding: 11px 14px;
+  font-size: 12px;
+  border-bottom: 1px solid #e2e8f0;
+  color: #1e293b;
+  vertical-align: middle;
+}
+
+.saas-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+.saas-qbadge {
+  display: inline-block;
+  font-family: ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #0f172a;
+}
+
+.saas-pname {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.saas-pcomplaint {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 1px;
+}
+
+.saas-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+}
+
+.chip-waiting {
+  background-color: #fffbeb;
+  color: #92400e;
+  border-color: #fde68a;
+}
+
+.chip-doctor {
+  background-color: #f0f9ff;
+  color: #0369a1;
+  border-color: #bae6fd;
+}
+
+.chip-completed {
+  background-color: #ecfdf5;
+  color: #065f46;
+  border-color: #a7f3d0;
+}
+
+.chip-cancelled {
+  background-color: #f1f5f9;
+  color: #475569;
+  border-color: #e2e8f0;
+}
+
+.saas-row-btn {
+  font-size: 11px;
+  font-weight: 600;
+  color: #0284c7;
+  background-color: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.saas-row-btn:hover {
+  background-color: #0284c7;
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   DIRECTION 03 — PREMIUM CLINICAL ("Refined Authority, Layered Depth")
+   ========================================================================== */
+.dir-premium-container {
+  background-color: #f8fafc;
+  color: #0f172a;
+  min-height: calc(100vh - 54px);
+  padding: 28px 32px 70px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.dir-premium-canvas {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+/* Executive Header with Clinic Insignia */
+.prem-header-deck {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.prem-brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.prem-clinic-crest {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: #0f766e;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(15, 118, 110, 0.25);
+}
+
+.prem-title-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.prem-clinic-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #0f766e;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.prem-ar-tag {
+  font-weight: 600;
+  font-size: 12px;
+  color: #475569;
+}
+
+.prem-main-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  margin: 2px 0 0;
+}
+
+.prem-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.prem-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #0f766e;
+  color: #ffffff;
+  padding: 9px 18px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid #115e59;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(15, 118, 110, 0.2);
+  transition: all 150ms ease;
+}
+
+.prem-btn-primary:hover {
+  background-color: #115e59;
+  box-shadow: 0 2px 6px rgba(15, 118, 110, 0.3);
+}
+
+.prem-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #ffffff;
+  color: #334155;
+  padding: 9px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid #cbd5e1;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.prem-btn-secondary:hover {
+  background-color: #f8fafc;
+  border-color: #94a3b8;
+}
+
+/* Elevated Telemetry Bar with Refined Depth */
+.prem-telemetry-bar {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 4px 10px -2px rgba(15, 23, 42, 0.02);
+  margin-bottom: 24px;
+}
+
+.prem-stat-cell {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+}
+
+.prem-stat-cell:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 16px;
+  bottom: 16px;
+  right: 0;
+  width: 1px;
+  background: #f1f5f9;
+}
+
+.prem-stat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.prem-stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.prem-stat-val-group {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.prem-stat-val {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.prem-stat-unit {
+  font-size: 13px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.prem-stat-trend {
+  font-size: 11px;
+  color: #0f766e;
+  font-weight: 600;
+}
+
+/* Polished Queue Deck */
+.prem-queue-deck {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05), 0 8px 16px -4px rgba(15, 23, 42, 0.03);
+  overflow: hidden;
+}
+
+.prem-deck-header {
+  padding: 14px 20px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Underline Refined Tabs */
+.prem-tabs {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.prem-tab {
+  font-size: 13px;
+  font-weight: 500;
+  color: #64748b;
+  background: transparent;
+  border: none;
+  padding: 8px 0;
+  cursor: pointer;
+  position: relative;
+  transition: color 150ms;
+}
+
+.prem-tab:hover {
+  color: #0f172a;
+}
+
+.prem-tab--active {
+  color: #0f766e;
+  font-weight: 600;
+}
+
+.prem-tab--active::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #0f766e;
+  border-radius: 2px;
+}
+
+.prem-deck-tools {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.prem-search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 6px 12px;
+  width: 260px;
+  transition: all 150ms;
+}
+
+.prem-search-box:focus-within {
+  background: #ffffff;
+  border-color: #0f766e;
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
+}
+
+.prem-search-input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 12px;
+  color: #0f172a;
+  width: 100%;
+}
+
+/* Clinical Ledger Table */
+.prem-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.prem-table th {
+  background-color: #fafbfc;
+  padding: 12px 18px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #475569;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.prem-table td {
+  padding: 14px 18px;
+  font-size: 13px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #1e293b;
+  vertical-align: middle;
+}
+
+.prem-table tr:hover td {
+  background-color: #f8fafc;
+}
+
+.prem-qbadge {
+  font-family: ui-monospace, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: #0f766e;
+  background: #f0fdfa;
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccfbf1;
+}
+
+.prem-patient-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.prem-patient-name {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.prem-patient-meta {
+  font-size: 11px;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.prem-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 12px;
+}
+
+.badge-waiting {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.badge-doctor {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+.badge-completed {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.badge-cancelled {
+  background-color: #f1f5f9;
+  color: #475569;
+}
+
+.prem-action-btn {
+  font-size: 12px;
+  font-weight: 600;
+  color: #0f766e;
+  background: #f0fdfa;
+  border: 1px solid #ccfbf1;
+  padding: 5px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 120ms;
+}
+
+.prem-action-btn:hover {
+  background: #0f766e;
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   Responsive Adaptation
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .min-metrics-strip,
+  .saas-metrics-grid,
+  .prem-telemetry-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .spec-sheet-grid {
+    grid-template-columns: 1fr;
+  }
+  .prem-stat-cell:not(:last-child)::after {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .dir-minimal-container,
+  .dir-saas-container,
+  .dir-premium-container {
+    padding: 16px 12px 40px;
+  }
+  .min-metrics-strip,
+  .saas-metrics-grid,
+  .prem-telemetry-bar {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .min-header,
+  .saas-header-card,
+  .prem-header-deck {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .min-controls-row,
+  .saas-toolbar,
+  .prem-deck-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .min-search-wrap,
+  .saas-search-box,
+  .prem-search-box {
+    width: 100%;
+  }
+  .min-tabs,
+  .saas-segmented-tabs,
+  .prem-tabs {
+    overflow-x: auto;
+    width: 100%;
+    padding-bottom: 4px;
+  }
+}

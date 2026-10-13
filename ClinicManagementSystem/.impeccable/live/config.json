@@ -1,0 +1,5 @@
+{
+  "files": ["ClinicManagementSystem/wwwroot/index.html"],
+  "insertBefore": "</body>",
+  "commentSyntax": "html"
+}

@@ -1,0 +1,41 @@
+# Dependencies
+**/node_modules/
+
+# Build outputs
+**/dist/
+**/bin/
+**/obj/
+**/Publish/
+
+# Environment variables and secrets
+**/.env
+**/.env.*
+!**/.env.example
+
+# IDE and local files
+.vs/
+.idea/
+*.user
+*.suo
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Local database files
+*.mdf
+*.ldf
+
+# OS files
+Thumbs.db
+Desktop.ini
+clinic-frontend/
+clinic-frontend.zip
+**/*.zip
+clinic-frontend/
+ClinicManagementSystem/.git/
+**/*.tsbuildinfo
+ClinicManagementSystem/.git-backup/
+ClinicManagementSystem/.vs/
+ClinicManagementSystem/ClinicManagementSystem/wwwroot/uploads/
+ClinicManagementSystem/ClinicManagementSystem/Properties/PublishProfiles/

@@ -1,0 +1,174 @@
+@import './tokens.css';
+
+/* Universal Box Sizing & Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden;
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  overflow-x: hidden;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Browser Surfaces: Selection Tint */
+::selection {
+  background-color: rgba(15, 118, 110, 0.2);
+  color: var(--color-text);
+}
+
+/* Browser Surfaces: Focus Ring */
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+/* Browser Surfaces: Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface-subtle);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: var(--text-xl);
+}
+
+h2 {
+  font-size: var(--text-lg);
+}
+
+h3 {
+  font-size: var(--text-md);
+}
+
+p {
+  color: var(--color-text-secondary);
+  font-size: var(--text-base);
+}
+
+/* Buttons */
+button {
+  font-family: inherit;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+  text-decoration: none;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Status Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: var(--text-xs);
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.badge--neutral {
+  background-color: var(--color-surface-hover);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+}
+.badge--neutral .badge-dot {
+  background-color: var(--color-text-muted);
+}
+
+.badge--emerald {
+  background-color: var(--color-emerald-bg);
+  color: var(--color-emerald-text);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+.badge--emerald .badge-dot {
+  background-color: var(--color-emerald);
+}
+
+.badge--amber {
+  background-color: var(--color-amber-bg);
+  color: var(--color-amber-text);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+.badge--amber .badge-dot {
+  background-color: var(--color-amber);
+}
+
+.badge--violet {
+  background-color: var(--color-violet-bg);
+  color: var(--color-violet-text);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+.badge--violet .badge-dot {
+  background-color: var(--color-violet);
+}
+
+.badge--rose {
+  background-color: var(--color-rose-bg);
+  color: var(--color-rose-text);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+.badge--rose .badge-dot {
+  background-color: var(--color-rose);
+}
